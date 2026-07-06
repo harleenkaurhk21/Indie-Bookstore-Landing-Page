@@ -1,6 +1,3 @@
-// ===============================
-// DOM Elements
-// ===============================
 
 const form = document.getElementById("contactForm");
 const loading = document.getElementById("loading");
@@ -17,10 +14,6 @@ const messageError = document.getElementById("messageError");
 const bookList = document.getElementById("bookList");
 const emptyMessage = document.getElementById("emptyMessage");
 
-// ===============================
-// Empty State
-// ===============================
-
 function checkBooks() {
     if (bookList.children.length === 0) {
         emptyMessage.classList.remove("hidden");
@@ -31,20 +24,11 @@ function checkBooks() {
 
 checkBooks();
 
-// ===============================
-// XSS Sanitization
-// ===============================
-
 function sanitizeInput(text) {
     const div = document.createElement("div");
     div.textContent = text;
     return div.innerHTML.trim();
 }
-
-// ===============================
-// Validation
-// ===============================
-
 function showError(input, errorElement, message) {
     input.classList.add("error-input");
     errorElement.textContent = message;
@@ -86,10 +70,6 @@ function validateForm() {
     return valid;
 }
 
-// ===============================
-// Form Submit
-// ===============================
-
 form.addEventListener("submit", function (e) {
 
     e.preventDefault();
@@ -122,10 +102,6 @@ form.addEventListener("submit", function (e) {
 
 });
 
-// ===============================
-// Browse Button
-// ===============================
-
 browseBtn.addEventListener("click", function () {
 
     console.log("[Analytics] User interacted with Static Landing Page");
@@ -135,11 +111,6 @@ browseBtn.addEventListener("click", function () {
     });
 
 });
-
-// ===============================
-// Remove Error While Typing
-// ===============================
-
 nameInput.addEventListener("input", () => {
     clearError(nameInput, nameError);
 });
